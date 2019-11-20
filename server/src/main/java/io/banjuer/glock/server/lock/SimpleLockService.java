@@ -1,8 +1,8 @@
 package io.banjuer.glock.server.lock;
 
+import io.banjuer.glock.core.config.CustomProperties;
 import io.banjuer.glock.core.entity.LockInfo;
 import io.banjuer.glock.core.entity.LockResponse;
-import io.banjuer.glock.server.config.CustomProperties;
 import io.banjuer.glock.core.rpc.api.LockService;
 
 import java.util.Map;
@@ -19,7 +19,7 @@ public class SimpleLockService implements LockService {
     private final   Map<String, LockInfo> lockInfos;
 
     public SimpleLockService() {
-        Integer lockSize = CustomProperties.config.getInteger("server.lock.size");
+        Integer lockSize = CustomProperties.config.getInteger("glock.server.lock.size");
         lockSize = lockSize == null ? DEFAULT_LOCK_SIZE : lockSize;
         this.lockInfos = new ConcurrentHashMap<>(lockSize);
     }

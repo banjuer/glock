@@ -1,5 +1,8 @@
 package io.banjuer.glock.server;
 
+import io.banjuer.glock.core.config.CustomProperties;
+import io.banjuer.glock.server.registry.RpcRegistry;
+
 /**
  * @author guochengsen
  */
@@ -12,7 +15,8 @@ public class GLockMain {
     }
 
     private static void start() {
-
+        // 启动服务端监听
+        new RpcRegistry(CustomProperties.config.getInteger("glock.rpc.listen.port")).start();
     }
 
     private static void backFromFile() {
@@ -20,7 +24,7 @@ public class GLockMain {
     }
 
     private static void init() {
-
+        // 注册
     }
 
 }

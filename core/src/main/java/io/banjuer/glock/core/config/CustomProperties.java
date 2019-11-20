@@ -1,4 +1,4 @@
-package io.banjuer.glock.server.config;
+package io.banjuer.glock.core.config;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,4 +1,4 @@
-package io.banjuer.glock.core.client;
+package io.banjuer.glock.client.proxy;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;

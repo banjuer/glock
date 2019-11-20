@@ -1,4 +1,4 @@
-package io.banjuer.glock.core.client;
+package io.banjuer.glock.client.proxy;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;

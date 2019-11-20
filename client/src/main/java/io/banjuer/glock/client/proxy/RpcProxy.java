@@ -1,4 +1,4 @@
-package io.banjuer.glock.core.client;
+package io.banjuer.glock.client.proxy;
 
 import java.lang.reflect.Proxy;
 

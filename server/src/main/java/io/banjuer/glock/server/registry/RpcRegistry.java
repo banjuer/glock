@@ -60,8 +60,4 @@ public class RpcRegistry {
         }
     }
 
-    //主启动类
-    public static void main(String[] args) {
-        new RpcRegistry(8888).start();
-    }
 }

@@ -1,16 +1,13 @@
 package io.banjuer.glock.server.registry;
 
-import io.banjuer.glock.core.entity.LockResponse;
+import io.banjuer.glock.core.rpc.protocol.InvokerProtocol;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import lombok.extern.slf4j.Slf4j;
-import io.banjuer.glock.core.rpc.protocol.InvokerProtocol;
 
 import java.io.File;
-import java.lang.invoke.MethodHandle;
-import java.lang.invoke.MethodHandles;
-import java.lang.invoke.MethodType;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,12 +55,11 @@ public class RegistryHandler extends ChannelInboundHandlerAdapter {
             log.warn("grpc server: {} has not implemented", request.getClassName());
             return null;
         }
-        MethodType mt = MethodType.methodType(LockResponse.class, request.getParams());
         try {
-            MethodHandle methodHandle = MethodHandles.lookup().findVirtual(obj.getClass(), request.getMethodName(), mt).bindTo(obj);
-            result = methodHandle.invoke(request.getValues());
-        } catch (Throwable throwable) {
-            log.error("grpc server :" + throwable.toString());
+            Method method = obj.getClass().getMethod(request.getMethodName(), request.getParams());
+            result = method.invoke(obj, request.getValues());
+        } catch (Exception e) {
+            log.error("grpc server :" + e.toString());
         }
         return result;
     }
