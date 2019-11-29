@@ -10,12 +10,29 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>server</artifactId>
+
+    <properties>
+        <zookeeper.version>3.4.13</zookeeper.version>
+    </properties>
+
 <dependencies>
     <dependency>
         <groupId>io.banjuer.glock</groupId>
         <artifactId>core</artifactId>
         <version>1.0-SNAPSHOT</version>
         <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.zookeeper</groupId>
+        <artifactId>zookeeper</artifactId>
+        <version>${zookeeper.version}</version>
+        <exclusions>
+            <exclusion>
+                <artifactId>slf4j-api</artifactId>
+                <groupId>org.slf4j</groupId>
+            </exclusion>
+        </exclusions>
     </dependency>
 </dependencies>
 </project>

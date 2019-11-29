@@ -1,4 +1,4 @@
-package io.banjuer.glock.server.registry;
+package io.banjuer.glock.server.rpc.registry;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

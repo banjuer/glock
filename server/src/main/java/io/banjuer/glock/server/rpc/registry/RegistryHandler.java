@@ -1,4 +1,4 @@
-package io.banjuer.glock.server.registry;
+package io.banjuer.glock.server.rpc.registry;
 
 import io.banjuer.glock.core.rpc.protocol.InvokerProtocol;
 import io.netty.channel.ChannelHandler;

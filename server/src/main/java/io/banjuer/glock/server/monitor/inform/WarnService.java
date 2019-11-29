@@ -1,4 +1,4 @@
-package io.banjuer.glock.server.inform;
+package io.banjuer.glock.server.monitor.inform;
 
 /**
  * 告警通知
